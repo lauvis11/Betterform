@@ -5,6 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/inicio': '/',
+    '/ejercicios': '/exercises',
+    '/informacion': '/about'
+  },
   vite: {
     plugins: [tailwindcss()]
   }

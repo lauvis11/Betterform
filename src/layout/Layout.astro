@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <html lang="es">
@@ -12,6 +13,7 @@ import '../styles/global.css';
 		<title>Betterform</title>
   </head>
   <body class="bg-[#0f0f0f] text-[#f3f4f6] min-h-screen">
+    <Navbar />
     <slot />
   </body>
 </html>
