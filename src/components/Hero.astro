@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import BetterFormLogo from '../assets/Betterform-logo-removebg-preview.png';
+---
+
+<section class="relative w-full py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center text-center overflow-hidden">
+  <div class="relative z-10 w-full max-w-4xl mx-auto px-4 flex flex-col items-center">
+    <div class="flex items-center justify-center -mb-2 sm:-mb-4">
+      <Image 
+        src={BetterFormLogo}
+        alt="BetterForm Logo"
+        class="h-24 sm:h-32 md:h-40 w-auto object-contain"
+        loading="eager"
+      />
+    </div>
+    <h1 class="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.15] max-w-3xl mx-auto mb-4 text-balance">
+      Busca como realizar un ejercicio de manera correcta
+    </h1>
+
+    <p class="text-sm sm:text-base text-[#888888] max-w-lg mx-auto leading-relaxed text-balance">
+      Explora nuestro catálogo de +100 ejercicios con instrucciones paso a paso y videos explicativos.
+    </p>
+  </div>
+</section>
