@@ -12,11 +12,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^7.0.0",
     "@lucide/astro": "^1.48.0",
     "@tailwindcss/vite": "4.3.3",
     "astro": "7.3.5",
     "lucide-astro": "^0.556.0",
     "lucide-react": "^1.48.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "tailwindcss": "4.3.3"
   },
   "allowScripts": {
