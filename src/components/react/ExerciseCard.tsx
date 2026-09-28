@@ -26,7 +26,7 @@ export const ExerciseCard = React.memo(function ExerciseCard({
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:flex-1 items-start min-w-0">
                     {/* Frame de previsualización 16:9 con mayor anchura */}
                     <div className="relative w-full sm:w-48 md:w-52 aspect-video rounded-lg overflow-hidden bg-dark-950 border border-dark-700/70 shrink-0 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-950 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-linear-to-br from-dark-900 via-dark-800 to-dark-950 flex items-center justify-center">
                             <div className="w-10 h-10 rounded-full bg-dark-800/90 border border-dark-700 flex items-center justify-center shadow-lg">
                                 <Play className="w-4 h-4 text-white fill-current ml-0.5" />
                             </div>

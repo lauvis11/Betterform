@@ -79,7 +79,7 @@ export function SearchBar() {
     };
 
     return (
-        <div className={`w-full max-w-[780px] mx-auto flex flex-col gap-4 transition-all duration-300 ${isSearching ? 'pt-6 sm:pt-8' : ''}`}>
+        <div className={`w-full max-w-195 mx-auto flex flex-col gap-4 transition-all duration-300 ${isSearching ? 'pt-6 sm:pt-8' : ''}`}>
             {/* ESTADO 1: INICIAL / IDLE (Solo input amplio y recomendaciones) */}
             {!isSearching ? (
                 <div className="w-full flex flex-col items-center">
@@ -158,7 +158,7 @@ export function SearchBar() {
 
                         {/* Línea sutil de progreso animada al cargar */}
                         {isLoading && (
-                            <div className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden bg-dark-700/50">
+                            <div className="absolute bottom-0 left-0 right-0 h-0.5 overflow-hidden bg-dark-700/50">
                                 <div className="w-1/3 h-full bg-brand-red animate-loading-beam rounded-full" />
                             </div>
                         )}
@@ -207,7 +207,7 @@ export function SearchBar() {
                             <h3 className="text-lg font-bold text-white mb-1">
                                 No encontramos ejercicios para tu búsqueda
                             </h3>
-                            <p className="text-sm text-neutral-400 max-w-[420px] mb-5">
+                            <p className="text-sm text-neutral-400 max-w-105 mb-5">
                                 Verifica la ortografía o intenta buscar por músculo, equipo o términos generales.
                             </p>
                             <div className="flex items-center flex-wrap justify-center gap-1.5">

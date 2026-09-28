@@ -21,7 +21,7 @@ export function ExerciseSkeleton({ count = 3 }: ExerciseSkeletonProps) {
                             <div className="flex flex-col justify-between gap-2.5 w-full sm:w-72 self-stretch py-0.5">
                                 <div>
                                     <div className="h-6 w-44 sm:w-56 rounded bg-dark-700 animate-shimmer" />
-                                    <div className="h-3.5 w-full max-w-[240px] rounded bg-dark-700/80 animate-shimmer mt-2" />
+                                    <div className="h-3.5 w-full max-w-60 rounded bg-dark-700/80 animate-shimmer mt-2" />
                                 </div>
                                 <div className="h-3.5 w-36 rounded bg-dark-700 animate-shimmer" />
                             </div>
