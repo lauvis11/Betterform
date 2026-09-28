@@ -1,0 +1,77 @@
+[
+  {
+    "id": "0001",
+    "name": "Bench Press",
+    "category": "chest",
+    "body_part": "chest",
+    "equipment": "barbell",
+    "instructions": "Acuéstate en un banco con los pies en el suelo. Agarra la barra un poco más ancho que el ancho de tus hombros. Baja la barra hacia tu pecho de forma controlada y luego empújala hacia arriba hasta extender completamente los brazos.",
+    "secondary_muscles": ["triceps", "shoulders"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Jeff Nippard",
+      "url": "https://www.youtube.com/@JeffNippard"
+    }
+  },
+  {
+    "id": "0002",
+    "name": "Squat",
+    "category": "legs",
+    "body_part": "upper legs",
+    "equipment": "barbell",
+    "instructions": "Párate con la barra en la parte superior de tu espalda y los pies al ancho de los hombros. Flexiona las rodillas y empuja las caderas hacia atrás bajando hasta que los muslos queden paralelos al suelo. Empuja con los talones para volver a la posición inicial.",
+    "secondary_muscles": ["glutes", "hamstrings", "lower back"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Alan Thrall",
+      "url": "https://www.youtube.com/@UntamedStrength"
+    }
+  },
+  {
+    "id": "0003",
+    "name": "Deadlift",
+    "category": "back",
+    "body_part": "upper legs",
+    "equipment": "barbell",
+    "instructions": "Párate con los pies al ancho de las caderas y la barra sobre el medio del pie. Bisagra en las caderas y agarra la barra justo fuera de las espinillas. Mantén el pecho arriba y la espalda recta. Empuja contra el suelo para levantar la barra y bloquea las caderas al llegar arriba.",
+    "secondary_muscles": ["glutes", "hamstrings", "lower back", "traps"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Alan Thrall",
+      "url": "https://www.youtube.com/@UntamedStrength"
+    }
+  },
+  {
+    "id": "0004",
+    "name": "Pull-up",
+    "category": "back",
+    "body_part": "upper back",
+    "equipment": "body weight",
+    "instructions": "Colgá de una barra con las manos más anchas que el ancho de los hombros y las palmas hacia afuera. Desde los codos, jalá el cuerpo hacia arriba hasta que la barbilla supere la barra. Bajá de forma controlada hasta la posición inicial.",
+    "secondary_muscles": ["biceps", "rear delts"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "short",
+    "channel": {
+      "name": "Jeff Nippard",
+      "url": "https://www.youtube.com/@JeffNippard"
+    }
+  },
+  {
+    "id": "0005",
+    "name": "Overhead Press",
+    "category": "shoulders",
+    "body_part": "shoulders",
+    "equipment": "barbell",
+    "instructions": "Párate con los pies al ancho de los hombros y la barra a la altura del pecho. Agarra la barra un poco más ancho que el ancho de los hombros. Empujá la barra hacia arriba por encima de la cabeza hasta extender completamente los brazos. Bajá de forma controlada.",
+    "secondary_muscles": ["triceps", "upper chest", "traps"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Athlean-X",
+      "url": "https://www.youtube.com/@athleanx"
+    }
+  }
+]
