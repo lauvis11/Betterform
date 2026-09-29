@@ -1,3 +1,8 @@
+export interface ExerciseStep {
+    title: string;
+    desc: string;
+}
+
 export interface Exercise {
     id: string;
     name: string;
@@ -12,4 +17,9 @@ export interface Exercise {
         name: string;
         url: string;
     };
+    steps?: ExerciseStep[];
+    common_mistake?: string;
+    level?: string;
+    movement_pattern?: string;
 }
+
