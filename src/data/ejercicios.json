@@ -3,180 +3,75 @@
     "id": "0001",
     "name": "Press de banca",
     "category": "Pecho",
-    "body_part": "Pectoral mayor",
-    "equipment": "Barra olímpica y banco plano",
-    "level": "Intermedio",
-    "movement_pattern": "Empuje horizontal",
+    "body_part": "Pecho",
+    "equipment": "barra",
     "instructions": "Acuéstate en un banco con los pies en el suelo. Agarra la barra un poco más ancho que el ancho de tus hombros. Baja la barra hacia tu pecho de forma controlada y luego empújala hacia arriba hasta extender completamente los brazos.",
-    "secondary_muscles": ["Tríceps braquial", "Deltoides anterior", "Serrato anterior", "Core (estabilizador)"],
-    "video_url": "https://www.youtube.com/embed/vcBig73ojpE",
+    "secondary_muscles": ["tríceps", "hombros"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
     "video_type": "video",
     "channel": {
       "name": "Jeff Nippard",
       "url": "https://www.youtube.com/@JeffNippard"
-    },
-    "steps": [
-      {
-        "title": "Posición inicial (Set-up)",
-        "desc": "Asegura el contacto de 5 puntos: ambos pies firmemente plantados contra el suelo, glúteos apoyados, espalda alta compacta y cabeza sobre el banco. Realiza una aducción y depresión escapular completa ('clavando las escápulas en el banco'). Toma la barra con un agarre simétrico ligeramente más ancho que los hombros asegurando muñecas neutras."
-      },
-      {
-        "title": "Fase excéntrica (Descenso)",
-        "desc": "Inhala diafragmáticamente creando una maniobra de Valsalva profunda para estabilizar la cavidad torácica. Inicia el descenso en un arco controlado en diagonal, permitiendo que los codos formen un ángulo de entre 45° y 75° con respecto al torso. La barra viaja de forma predecible hacia el esternón medio o la base del pectoral."
-      },
-      {
-        "title": "Punto de inflexión y pausa",
-        "desc": "Haz contacto controlado con la camiseta en la porción inferior del pecho. Mantén la tensión isométrica activa sin colapsar el pecho ni transferir la inercia mediante un rebote en el esternón. Conserva los antebrazos rigurosamente perpendiculares al suelo desde cualquier perspectiva de visión lateral."
-      },
-      {
-        "title": "Fase concéntrica (Empuje)",
-        "desc": "Empuja activamente el suelo con las piernas (leg drive horizontal hacia atrás, sin despegar los glúteos del banco) e inicia el empuje explosivo de la barra siguiendo una trayectoria en 'J' invertida hacia la vertical de los hombros. Exhala al sobrepasar el punto de estancamiento y finaliza con los codos en extensión controlada sin desarmar la retracción escapular."
-      }
-    ],
-    "common_mistake": "No permitas que las muñecas se hiperextiendan bajo cargas pesadas ni abras los codos a 90° respecto al torso, ya que desvía el estrés del pectoral hacia el manguito rotador y los tendones del hombro."
+    }
   },
   {
     "id": "0002",
     "name": "Sentadilla",
     "category": "Piernas",
-    "body_part": "Cuádriceps y glúteos",
-    "equipment": "Barra olímpica y rack",
-    "level": "Intermedio",
-    "movement_pattern": "Patrón de Sentadilla (Squat)",
+    "body_part": "Piernas",
+    "equipment": "barra",
     "instructions": "Párate con la barra en la parte superior de tu espalda y los pies al ancho de los hombros. Flexiona las rodillas y empuja las caderas hacia atrás bajando hasta que los muslos queden paralelos al suelo. Empuja con los talones para volver a la posición inicial.",
-    "secondary_muscles": ["Glúteo mayor", "Isquiotibiales", "Erectores espinales", "Core"],
-    "video_url": "https://www.youtube.com/embed/bEv6CCg2BC8",
+    "secondary_muscles": ["glúteos", "isquiotibiales", "espalda baja"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
     "video_type": "video",
     "channel": {
       "name": "Alan Thrall",
       "url": "https://www.youtube.com/@UntamedStrength"
-    },
-    "steps": [
-      {
-        "title": "Posición inicial (Set-up)",
-        "desc": "Coloca la barra sobre los trapecios (barra alta o baja) con un agarre firme. Separa los pies aproximadamente al ancho de los hombros con las puntas ligeramente abiertas hacia afuera (15° a 30°). Tensa la espalda alta, inhala profundamente hacia el abdomen y presuriza el core."
-      },
-      {
-        "title": "Fase excéntrica (Descenso)",
-        "desc": "Inicia el movimiento flexionando caderas y rodillas simultáneamente. Empuja las rodillas hacia afuera en la misma dirección que apuntan los pies mientras mantienes el torso erguido y el peso distribuido uniformemente en todo el pie (trípode podal)."
-      },
-      {
-        "title": "Profundidad y control",
-        "desc": "Desciende de forma controlada hasta que el pliegue de la cadera quede al menos a la misma altura o ligeramente por debajo de la parte superior de las rodillas (paralelo), manteniendo la columna en posición neutra sin flexión lumbar (guiño de glúteo)."
-      },
-      {
-        "title": "Fase concéntrica (Ascenso)",
-        "desc": "Empuja con fuerza el suelo a través de todo el pie, asegurando que caderas y pecho suban al mismo ritmo. Evita que las rodillas colapsen hacia adentro (valgo de rodilla) y completa la extensión de cadera y rodillas en el punto superior."
-      }
-    ],
-    "common_mistake": "Evita el colapso de las rodillas hacia adentro (valgo) y que las caderas se disparen hacia arriba antes que el torso (buenos días involuntario), manteniendo siempre el pecho firme y el core presurizado."
+    }
   },
   {
     "id": "0003",
     "name": "Peso muerto",
     "category": "Espalda",
-    "body_part": "Cadena posterior",
-    "equipment": "Barra olímpica y discos olímpicos",
-    "level": "Avanzado",
-    "movement_pattern": "Bisagra de cadera (Hinge)",
+    "body_part": "Piernas",
+    "equipment": "barra",
     "instructions": "Párate con los pies al ancho de las caderas y la barra sobre el medio del pie. Bisagra en las caderas y agarra la barra justo fuera de las espinillas. Mantén el pecho arriba y la espalda recta. Empuja contra el suelo para levantar la barra y bloquea las caderas al llegar arriba.",
-    "secondary_muscles": ["Glúteos", "Isquiotibiales", "Erectores espinales", "Trapecios", "Dorsales"],
-    "video_url": "https://www.youtube.com/embed/wYREQkVtvEc",
+    "secondary_muscles": ["glúteos", "isquiotibiales", "espalda baja", "trapecios"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
     "video_type": "video",
     "channel": {
       "name": "Alan Thrall",
       "url": "https://www.youtube.com/@UntamedStrength"
-    },
-    "steps": [
-      {
-        "title": "Posición inicial (Set-up)",
-        "desc": "Párate con los pies separados al ancho de las caderas y la barra cortando la mitad del pie (a 2-3 cm de las espinillas). Sin mover la barra, flexiona las caderas y toma la barra por fuera de las piernas con agarre prono o mixto."
-      },
-      {
-        "title": "Fijación y tensión previa",
-        "desc": "Lleva las espinillas hacia la barra hasta que hagan contacto suave. Activa los dorsales imaginando doblar la barra contra tus piernas, saca el pecho y tensa la barra eliminando cualquier holgura antes de iniciar el tirón."
-      },
-      {
-        "title": "Inicio del tirón",
-        "desc": "Empuja el suelo como si quisieras alejarlo con las piernas manteniendo la barra pegada a las espinillas. La espalda debe mantener un ángulo constante hasta que la barra sobrepase las rodillas."
-      },
-      {
-        "title": "Bloqueo final y descenso",
-        "desc": "Una vez que la barra supera las rodillas, empuja las caderas hacia adelante con fuerza activando los glúteos hasta quedar erguido en posición neutra. Desciende controlando la bisagra de cadera sin soltar la barra."
-      }
-    ],
-    "common_mistake": "Nunca redondees la columna lumbar al despegar la barra del suelo ni intentes levantar el peso tirando con los brazos; el peso muerto es un empuje de suelo coordinado con una extensión de cadera."
+    }
   },
   {
     "id": "0004",
     "name": "Dominadas",
     "category": "Espalda",
-    "body_part": "Dorsal ancho",
-    "equipment": "Barra de dominadas (Peso corporal)",
-    "level": "Intermedio",
-    "movement_pattern": "Tracción vertical",
+    "body_part": "Espalda alta",
+    "equipment": "peso corporal",
     "instructions": "Colgá de una barra con las manos más anchas que el ancho de los hombros y las palmas hacia afuera. Desde los codos, jalá el cuerpo hacia arriba hasta que la barbilla supere la barra. Bajá de forma controlada hasta la posición inicial.",
-    "secondary_muscles": ["Bíceps braquial", "Braquiorradial", "Deltoides posterior", "Romboides", "Core"],
-    "video_url": "https://www.youtube.com/embed/eGo4IYlbE5g",
+    "secondary_muscles": ["bíceps", "deltoides posteriores"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
     "video_type": "short",
     "channel": {
       "name": "Jeff Nippard",
       "url": "https://www.youtube.com/@JeffNippard"
-    },
-    "steps": [
-      {
-        "title": "Posición inicial (Set-up)",
-        "desc": "Cuelga de la barra con agarre prono (palmas hacia el frente) un poco más ancho que los hombros. Comienza desde un bloqueo completo con los brazos extendidos y el cuerpo en posición de 'hollow body' (abdomen y glúteos tensos)."
-      },
-      {
-        "title": "Depresión escapular",
-        "desc": "Antes de flexionar los brazos, activa la espalda deprimiendo y retrayendo las escápulas (iniciar la dominada escapular), alejando conscientemente los hombros de las orejas."
-      },
-      {
-        "title": "Fase concéntrica (Tracción)",
-        "desc": "Conduce los codos hacia abajo y hacia los costados, traccionando el cuerpo de manera fluida y sin balanceo (evitando kipping) hasta que la barbilla supere claramente la altura de la barra."
-      },
-      {
-        "title": "Fase excéntrica (Descenso)",
-        "desc": "Baja de manera controlada y continua en 2 a 3 segundos hasta volver a la posición de suspensión completa antes de iniciar la siguiente repetición sin balancearte."
-      }
-    ],
-    "common_mistake": "Evita el balanceo de piernas (kipping) y cortar el rango de movimiento; cada repetición debe iniciar desde brazos totalmente extendidos y culminar con la barbilla sobre la barra."
+    }
   },
   {
     "id": "0005",
     "name": "Press militar",
     "category": "Hombros",
-    "body_part": "Deltoides anterior y lateral",
-    "equipment": "Barra olímpica",
-    "level": "Intermedio",
-    "movement_pattern": "Empuje vertical",
+    "body_part": "Hombros",
+    "equipment": "barra",
     "instructions": "Párate con los pies al ancho de los hombros y la barra a la altura del pecho. Agarra la barra un poco más ancho que el ancho de los hombros. Empujá la barra hacia arriba por encima de la cabeza hasta extender completamente los brazos. Bajá de forma controlada.",
-    "secondary_muscles": ["Tríceps braquial", "Pectoral superior", "Trapecios", "Core (fijador)"],
-    "video_url": "https://www.youtube.com/embed/2yjwXTZQDDI",
+    "secondary_muscles": ["tríceps", "pecho superior", "trapecios"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
     "video_type": "video",
     "channel": {
       "name": "Athlean-X",
       "url": "https://www.youtube.com/@athleanx"
-    },
-    "steps": [
-      {
-        "title": "Posición inicial (Set-up)",
-        "desc": "Párate con los pies al ancho de las caderas y agarra la barra justo por fuera de los hombros. Los antebrazos deben quedar perfectamente verticales bajo la barra, apoyándola sobre la parte superior del pecho o clavículas."
-      },
-      {
-        "title": "Fijación y presurización",
-        "desc": "Aprieta con fuerza glúteos, cuádriceps y abdomen para crear una columna sólida. Inclina ligeramente la cabeza hacia atrás para dejar paso libre a la trayectoria de la barra."
-      },
-      {
-        "title": "Empuje vertical",
-        "desc": "Empuja la barra en línea recta hacia el techo. En cuanto la barra pase la frente, mueve la cabeza ligeramente hacia adelante a través del 'hueco' de los brazos para alinear la barra sobre la coronilla."
-      },
-      {
-        "title": "Bloqueo y descenso",
-        "desc": "Bloquea los codos arriba con la barra alineada sobre los hombros, caderas y mitad del pie. Desciende de forma controlada repitiendo la trayectoria inversa."
-      }
-    ],
-    "common_mistake": "No hiperextiendas la espalda baja para compensar falta de movilidad en hombros o fatiga; aprieta con firmeza los glúteos y el abdomen para proteger la columna vertebral."
+    }
   }
 ]
