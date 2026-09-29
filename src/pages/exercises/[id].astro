@@ -2,8 +2,8 @@
 import Layout from "../../layout/Layout.astro";
 import ejercicios from "../../data/ejercicios.json";
 import type { Exercise } from "../../types/exercise";
-import { ArrowLeft, ExternalLink } from 'lucide-astro';
-import youtubeIcon from '../../assets/icons/youtube-svgrepo-com.svg';
+import { ArrowLeft, ExternalLink } from "lucide-astro";
+import youtubeIcon from "../../assets/icons/youtube-svgrepo-com.svg";
 
 export function getStaticPaths() {
   return (ejercicios as Exercise[]).map((exercise) => ({
@@ -28,85 +28,131 @@ const { exercise } = Astro.props;
           href="/"
           class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-neutral-400 hover:text-white transition-colors group cursor-pointer"
         >
-          <ArrowLeft class="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:-translate-x-0.5 transition-transform" />
+          <ArrowLeft
+            class="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:-translate-x-0.5 transition-transform"
+          />
           <span>Volver a resultados</span>
         </a>
       </div>
 
       <!-- 2. Nombre del Ejercicio y Categoría + Equipamiento a la derecha -->
-      <div class="flex flex-row flex-wrap items-center justify-between gap-3 mb-6">
-        <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+      <div
+        class="flex flex-row flex-wrap items-center justify-between gap-3 mb-6"
+      >
+        <h1
+          class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight"
+        >
           {exercise.name}
         </h1>
 
         <div class="flex items-center gap-2.5 shrink-0 text-sm">
-          <span class="inline-flex items-center justify-center w-24 px-1 py-1 leading-tight rounded-sm bg-brand-red border border-transparent text-white font-bold text-center whitespace-nowrap">
+          <span
+            class="inline-flex items-center justify-center w-24 px-1 py-1 leading-tight rounded-sm bg-brand-red border border-transparent text-white font-bold text-center whitespace-nowrap"
+          >
             {exercise.category}
           </span>
           <span class="text-neutral-500 select-none">-</span>
-          <span class="inline-flex items-center justify-center w-24 px-1 py-1 leading-tight rounded-sm bg-dark-700/60 border border-dark-600 text-neutral-300 font-medium capitalize text-center whitespace-nowrap">
+          <span
+            class="inline-flex items-center justify-center w-24 px-1 py-1 leading-tight rounded-sm bg-dark-700/60 border border-dark-600 text-neutral-300 font-medium capitalize text-center whitespace-nowrap"
+          >
             {exercise.equipment}
           </span>
         </div>
       </div>
 
       <!-- 4. Video Container 16:9 con Iframe Real -->
-      {exercise.video_url && (
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-dark-950 border border-dark-700 shadow-2xl">
-          <iframe 
-            src={exercise.video_url} 
-            title={exercise.name}
-            class="w-full h-full border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen
-          ></iframe>
-        </div>
-      )}
+      {
+        exercise.video_url && (
+          <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-dark-950 border border-dark-700 shadow-2xl">
+            <iframe
+              src={exercise.video_url}
+              title={exercise.name}
+              class="w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            />
+          </div>
+        )
+      }
 
-      <!-- 5. Créditos del Creador -->
-      <div class="flex items-center gap-2 mt-4 sm:mt-5 text-sm sm:text-base text-neutral-400">
-        <span>Creador:</span>
-        <a
-          href={exercise.channel.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-white hover:text-brand-red font-medium inline-flex items-center gap-1.5 transition-colors group"
-        >
-          <img
-            src={youtubeIcon.src}
-            alt="YouTube"
-            class="w-4.5 h-4.5 sm:w-5 sm:h-5 object-contain brightness-0 invert opacity-90 inline-block"
-          />
-          <span>{exercise.channel.name}</span>
-          <ExternalLink class="w-4 h-4 text-neutral-400" />
-        </a>
+      <!-- 5. Créditos del Creador y Tipo de Video -->
+      <div
+        class="flex items-center flex-wrap gap-2.5 mt-4 sm:mt-5 text-sm sm:text-base text-neutral-400"
+      >
+        <div class="flex items-center gap-2">
+          <span>Creador:</span>
+          <a
+            href={exercise.channel.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white hover:text-brand-red font-medium inline-flex items-center gap-1.5 transition-colors group"
+          >
+            <img
+              src={youtubeIcon.src}
+              alt="YouTube"
+              class="w-4.5 h-4.5 sm:w-5 sm:h-5 object-contain brightness-0 invert opacity-90 inline-block"
+            />
+            <span>{exercise.channel.name}</span>
+            <ExternalLink class="w-4 h-4 text-neutral-400" />
+          </a>
+        </div>
+
+        {
+          exercise.video_type && (
+            <div class="flex items-center gap-2">
+              <span class="text-neutral-600 select-none">•</span>
+              <span>Tipo:</span>
+              <span class="text-white font-medium capitalize">
+                {exercise.video_type}
+              </span>
+            </div>
+          )
+        }
       </div>
 
       <!-- 6. Caja de instrucciones de técnica y músculos secundarios (debajo del video) -->
-      <div class="mt-8 bg-dark-800 border border-dark-700 rounded-xl p-6 sm:p-8 shadow-xl">
-        <h2 class="text-lg sm:text-xl font-bold mb-3 text-white">Instrucciones de técnica</h2>
-        <p class="text-neutral-300 leading-relaxed text-sm sm:text-base">{exercise.instructions}</p>
+      <div
+        class="mt-8 bg-dark-800 border border-dark-700 rounded-xl p-6 sm:p-8 shadow-xl"
+      >
+        <h2 class="text-lg sm:text-xl font-bold mb-3 text-white">
+          Instrucciones de técnica
+        </h2>
+        <p class="text-neutral-300 leading-relaxed text-sm sm:text-base">
+          {exercise.instructions}
+        </p>
 
         <div class="mt-5 space-y-1.5 text-sm sm:text-base text-neutral-300">
-          <p><span class="text-white font-semibold">Categoría:</span> {exercise.category}</p>
-          <p><span class="text-white font-semibold">Equipamiento:</span> <span class="capitalize">{exercise.equipment}</span></p>
-          <p><span class="text-white font-semibold">Músculo:</span> {exercise.body_part}</p>
+          <p>
+            <span class="text-white font-semibold">Categoría: </span>
+            {exercise.category}
+          </p>
+          <p>
+            <span class="text-white font-semibold">Equipamiento: </span>
+            <span class="capitalize">{exercise.equipment}</span>
+          </p>
+          <p>
+            <span class="text-white font-semibold">Músculo: </span>
+            {exercise.body_part}
+          </p>
         </div>
 
-        {exercise.secondary_muscles && exercise.secondary_muscles.length > 0 && (
-          <div class="mt-6 pt-6 border-t border-dark-700">
-            <span class="text-xs uppercase tracking-wider font-semibold text-neutral-400 block mb-2">
-              Músculos secundarios involucrados:
-            </span>
-            <div class="flex flex-wrap gap-2">
-              {exercise.secondary_muscles.map((muscle) => (
-                <span class="px-2.5 py-1 rounded bg-dark-700/60 border border-dark-600 text-xs text-neutral-300 capitalize">
-                  {muscle}
+        {
+          exercise.secondary_muscles &&
+            exercise.secondary_muscles.length > 0 && (
+              <div class="mt-6 pt-6 border-t border-dark-700">
+                <span class="text-xs uppercase tracking-wider font-semibold text-neutral-400 block mb-2">
+                  Músculos secundarios involucrados:
                 </span>
-              ))}
-            </div>
-          </div>
-        )}
+                <div class="flex flex-wrap gap-2">
+                  {exercise.secondary_muscles.map((muscle) => (
+                    <span class="px-2.5 py-1 rounded bg-dark-700/60 border border-dark-600 text-xs text-neutral-300 capitalize">
+                      {muscle}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )
+        }
       </div>
     </div>
   </main>
