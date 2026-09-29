@@ -63,7 +63,7 @@ export const ExerciseCard = React.memo(function ExerciseCard({
                         )}
                     </div>
 
-                    {/* Fila 3: Canal de YouTube a la izquierda, flecha a la derecha */}
+                    {/* Fila 3: Canal de YouTube y Tipo de Video a la izquierda, flecha a la derecha */}
                     <div className="flex items-center justify-between gap-2 pt-0.5 w-full">
                         <div className="flex items-center gap-2 text-xs sm:text-sm truncate">
                             <img 
@@ -74,6 +74,14 @@ export const ExerciseCard = React.memo(function ExerciseCard({
                             <span className="text-white font-medium truncate">
                                 {exercise.channel.name}
                             </span>
+                            {exercise.video_type && (
+                                <>
+                                    <span className="text-neutral-500 select-none">•</span>
+                                    <span className="text-neutral-400 shrink-0">
+                                        Tipo: <span className="text-white font-medium capitalize">{exercise.video_type}</span>
+                                    </span>
+                                </>
+                            )}
                         </div>
 
                         <div className="hidden sm:block text-neutral-500 group-hover:text-brand-red transition-colors shrink-0">
