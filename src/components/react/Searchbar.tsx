@@ -3,9 +3,12 @@ import { Search, SearchX, X, Loader2 } from 'lucide-react';
 import ejerciciosData from '../../data/ejercicios.json';
 import type { Exercise } from '../../types/exercise';
 import { ExerciseCard } from './ExerciseCard';
-import { ExerciseSkeleton } from './ExerciseSkeleton';
 
 export type { Exercise };
+
+interface SearchBarProps {
+    children?: React.ReactNode;
+}
 
 const POPULAR_SEARCHES = ['Press de banca', 'Sentadilla', 'Peso muerto', 'Dominadas', 'Press militar'] as const;
 
@@ -20,7 +23,7 @@ const SPANISH_SYNONYMS: Record<string, string> = {
 const normalize = (str: string) =>
     str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
 
-export function SearchBar() {
+export function SearchBar({ children }: SearchBarProps) {
     const [query, setQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [searchKey, setSearchKey] = useState(0);
@@ -186,7 +189,16 @@ export function SearchBar() {
 
                     {/* Live Results: Skeletons durante la carga rápida y cards una por una al finalizar */}
                     {isLoading ? (
-                        <ExerciseSkeleton count={3} />
+                        children || (
+                            <div className="flex flex-col gap-3.5 w-full">
+                                {Array.from({ length: 3 }).map((_, index) => (
+                                    <div
+                                        key={`fallback-skeleton-${index}`}
+                                        className="w-full bg-dark-800 border border-dark-700/60 rounded-xl p-4 sm:p-5 shadow-md h-32 animate-pulse"
+                                    />
+                                ))}
+                            </div>
+                        )
                     ) : filteredExercises.length > 0 ? (
                         <div className="flex flex-col gap-3.5 w-full">
                             {filteredExercises.map((exercise, index) => (
