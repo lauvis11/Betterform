@@ -73,5 +73,170 @@
       "name": "Athlean-X",
       "url": "https://www.youtube.com/@athleanx"
     }
+  },
+  {
+    "id": "0006",
+    "name": "Curl de bíceps con mancuernas",
+    "category": "Brazos",
+    "body_part": "Brazos",
+    "equipment": "mancuernas",
+    "instructions": "Párate derecho sosteniendo una mancuerna en cada mano con los brazos a los lados. Manteniendo los codos fijos pegados al torso, flexiona los codos levantando las mancuernas hasta contraer al máximo los bíceps. Baja lentamente controlando el peso.",
+    "secondary_muscles": ["antebrazos", "braquial"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Jeremy Ethier",
+      "url": "https://www.youtube.com/@JeremyEthier"
+    }
+  },
+  {
+    "id": "0007",
+    "name": "Extensión de tríceps en polea",
+    "category": "Brazos",
+    "body_part": "Brazos",
+    "equipment": "polea",
+    "instructions": "Colócate frente a la polea alta con una cuerda o barra recta. Con los codos flexionados a 90 grados y pegados a los costados, extiende los brazos hacia abajo hasta bloquear los tríceps. Vuelve controlando la fase excéntrica.",
+    "secondary_muscles": ["antebrazos"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "short",
+    "channel": {
+      "name": "Jeff Nippard",
+      "url": "https://www.youtube.com/@JeffNippard"
+    }
+  },
+  {
+    "id": "0008",
+    "name": "Press inclinado con mancuernas",
+    "category": "Pecho",
+    "body_part": "Pecho",
+    "equipment": "mancuernas",
+    "instructions": "Ajusta el banco a unos 30-45 grados. Con una mancuerna en cada mano sobre el pecho, empuja verticalmente hacia arriba contrayendo la porción clavicular del pectoral. Baja de forma controlada hasta estirar el pecho.",
+    "secondary_muscles": ["deltoides anterior", "tríceps"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Sean Nalewanyj",
+      "url": "https://www.youtube.com/@Sean_Nalewanyj"
+    }
+  },
+  {
+    "id": "0009",
+    "name": "Aperturas en máquina Peck Deck",
+    "category": "Pecho",
+    "body_part": "Pecho",
+    "equipment": "máquina",
+    "instructions": "Siéntate con la espalda apoyada firmemente en el respaldo. Ajusta la altura de los brazos de la máquina para que queden alineados con el centro del pecho. Junta las palmas adelante contrayendo los pectorales y regresa lentamente abriendo los brazos.",
+    "secondary_muscles": ["deltoides anterior"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "short",
+    "channel": {
+      "name": "Renaissance Periodization",
+      "url": "https://www.youtube.com/@RenaissancePeriodization"
+    }
+  },
+  {
+    "id": "0010",
+    "name": "Remo con barra",
+    "category": "Espalda",
+    "body_part": "Espalda",
+    "equipment": "barra",
+    "instructions": "Inclina el torso hacia adelante a unos 45 grados manteniendo la espalda neutra y las rodillas ligeramente flexionadas. Toma la barra y tira de ella hacia la parte baja del abdomen apretando los dorsales y las escápulas. Desciende con control.",
+    "secondary_muscles": ["bíceps", "deltoides posterior", "romboides"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Alan Thrall",
+      "url": "https://www.youtube.com/@UntamedStrength"
+    }
+  },
+  {
+    "id": "0011",
+    "name": "Jalón al pecho en polea",
+    "category": "Espalda",
+    "body_part": "Espalda alta",
+    "equipment": "polea",
+    "instructions": "Siéntate en la máquina de jalón con los muslos asegurados bajo las almohadillas. Agarra la barra con agarre prono amplio. Tira de la barra hacia la parte superior del esternón llevando los codos hacia abajo y atrás. Extiende los brazos controladamente.",
+    "secondary_muscles": ["bíceps", "braquial", "deltoides posterior"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Jeff Nippard",
+      "url": "https://www.youtube.com/@JeffNippard"
+    }
+  },
+  {
+    "id": "0012",
+    "name": "Prensa de piernas en máquina",
+    "category": "Piernas",
+    "body_part": "Piernas",
+    "equipment": "máquina",
+    "instructions": "Coloca los pies en la plataforma a la anchura de los hombros. Libera los seguros y flexiona las rodillas bajando el trineo de peso hasta formar un ángulo de 90 grados en las piernas. Empuja con fuerza usando toda la planta del pie sin bloquear las rodillas arriba.",
+    "secondary_muscles": ["glúteos", "isquiotibiales"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Renaissance Periodization",
+      "url": "https://www.youtube.com/@RenaissancePeriodization"
+    }
+  },
+  {
+    "id": "0013",
+    "name": "Elevaciones laterales con mancuernas",
+    "category": "Hombros",
+    "body_part": "Hombros",
+    "equipment": "mancuernas",
+    "instructions": "Con una mancuerna en cada mano y el torso ligeramente inclinado hacia adelante, eleva los brazos hacia los lados liderando con los codos hasta alcanzar la altura de los hombros. Pausa un instante arriba y desciende despacio.",
+    "secondary_muscles": ["trapecios"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "short",
+    "channel": {
+      "name": "Sean Nalewanyj",
+      "url": "https://www.youtube.com/@Sean_Nalewanyj"
+    }
+  },
+  {
+    "id": "0014",
+    "name": "Face Pull en polea",
+    "category": "Hombros",
+    "body_part": "Hombros",
+    "equipment": "polea",
+    "instructions": "Ajusta la polea a la altura de la cara con una cuerda. Agarra los extremos con los pulgares hacia atrás. Tira de la cuerda hacia tu rostro separando las manos y rotando los hombros externamente para trabajar deltoides posteriores y manguito rotador.",
+    "secondary_muscles": ["deltoides posterior", "trapecios", "romboides"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Athlean-X",
+      "url": "https://www.youtube.com/@athleanx"
+    }
+  },
+  {
+    "id": "0015",
+    "name": "Plancha abdominal",
+    "category": "Abdomen",
+    "body_part": "Abdomen",
+    "equipment": "peso corporal",
+    "instructions": "Apóyate sobre tus antebrazos y las puntas de los pies, formando una línea recta desde la cabeza hasta los talones. Activa el core contrayendo glúteos y abdomen fuertemente sin dejar caer la pelvis.",
+    "secondary_muscles": ["hombros", "glúteos", "espalda baja"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "video",
+    "channel": {
+      "name": "Jeremy Ethier",
+      "url": "https://www.youtube.com/@JeremyEthier"
+    }
+  },
+  {
+    "id": "0016",
+    "name": "Crunch en polea alta",
+    "category": "Abdomen",
+    "body_part": "Abdomen",
+    "equipment": "polea",
+    "instructions": "Arrodíllate frente a la polea alta sosteniendo la cuerda a ambos lados de la cabeza. Flexiona la columna curvando el torso hacia los muslos contrayendo los abdominales rectos. Vuelve con control manteniendo la tensión.",
+    "secondary_muscles": ["oblicuos"],
+    "video_url": "https://www.youtube.com/embed/placeholder",
+    "video_type": "short",
+    "channel": {
+      "name": "Jeff Nippard",
+      "url": "https://www.youtube.com/@JeffNippard"
+    }
   }
 ]
