@@ -1,51 +1,78 @@
 import React, { useState } from 'react';
 import { Check, X, ChevronDown, SlidersHorizontal } from 'lucide-react';
 
-interface FilterItem {
+export interface FilterItem {
   id: string;
   label: string;
   count: number;
 }
 
-const MUSCLE_GROUPS: FilterItem[] = [
-  { id: 'todos', label: 'Todos', count: 110 },
-  { id: 'pecho', label: 'Pecho', count: 14 },
-  { id: 'espalda', label: 'Espalda', count: 22 },
-  { id: 'piernas', label: 'Piernas', count: 28 },
-  { id: 'hombros', label: 'Hombros', count: 16 },
-  { id: 'brazos', label: 'Brazos', count: 19 },
-  { id: 'abdomen', label: 'Abdomen', count: 11 },
+export interface FilterSidebarProps {
+  selectedMuscles?: string[];
+  selectedEquipment?: string[];
+  onToggleMuscle?: (id: string) => void;
+  onToggleEquipment?: (id: string) => void;
+  onClearAll?: () => void;
+  muscleCounts?: Record<string, number>;
+  equipmentCounts?: Record<string, number>;
+  totalCount?: number;
+}
+
+const BASE_MUSCLE_GROUPS: Omit<FilterItem, 'count'>[] = [
+  { id: 'todos', label: 'Todos' },
+  { id: 'pecho', label: 'Pecho' },
+  { id: 'espalda', label: 'Espalda' },
+  { id: 'piernas', label: 'Piernas' },
+  { id: 'hombros', label: 'Hombros' },
+  { id: 'brazos', label: 'Brazos' },
+  { id: 'abdomen', label: 'Abdomen' },
 ];
 
-const EQUIPMENT_LIST: FilterItem[] = [
-  { id: 'barra', label: 'Barra', count: 18 },
-  { id: 'mancuernas', label: 'Mancuernas', count: 24 },
-  { id: 'maquina', label: 'Máquina', count: 15 },
-  { id: 'peso-corporal', label: 'Peso corporal', count: 12 },
-  { id: 'polea', label: 'Polea', count: 10 },
+const BASE_EQUIPMENT_LIST: Omit<FilterItem, 'count'>[] = [
+  { id: 'barra', label: 'Barra' },
+  { id: 'mancuernas', label: 'Mancuernas' },
+  { id: 'maquina', label: 'Máquina' },
+  { id: 'peso-corporal', label: 'Peso corporal' },
+  { id: 'polea', label: 'Polea' },
 ];
 
-export const FilterSidebar = () => {
+export const FilterSidebar: React.FC<FilterSidebarProps> = ({
+  selectedMuscles: propSelectedMuscles,
+  selectedEquipment: propSelectedEquipment,
+  onToggleMuscle,
+  onToggleEquipment,
+  onClearAll,
+  muscleCounts,
+  equipmentCounts,
+  totalCount,
+}) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMuscleOpen, setIsMuscleOpen] = useState(true);
   const [isEquipmentOpen, setIsEquipmentOpen] = useState(true);
 
-  // Por defecto solo uno activado: "todos"
-  const [selectedMuscles, setSelectedMuscles] = useState<string[]>(['todos']);
-  const [selectedEquipment, setSelectedEquipment] = useState<string[]>([]);
+  // Estado interno en caso de usarse en modo no controlado
+  const [internalMuscles, setInternalMuscles] = useState<string[]>(['todos']);
+  const [internalEquipment, setInternalEquipment] = useState<string[]>([]);
+
+  const selectedMuscles = propSelectedMuscles ?? internalMuscles;
+  const selectedEquipment = propSelectedEquipment ?? internalEquipment;
 
   // Alternar selección de categoría/músculo
-  const toggleMuscle = (id: string) => {
-    if (id === 'todos') {
-      setSelectedMuscles(['todos']);
+  const handleToggleMuscle = (id: string) => {
+    if (onToggleMuscle) {
+      onToggleMuscle(id);
       return;
     }
 
-    setSelectedMuscles((prev) => {
+    if (id === 'todos') {
+      setInternalMuscles(['todos']);
+      return;
+    }
+
+    setInternalMuscles((prev) => {
       const withoutTodos = prev.filter((m) => m !== 'todos');
       if (withoutTodos.includes(id)) {
         const next = withoutTodos.filter((m) => m !== id);
-        // Si no queda ninguna categoría seleccionada, regresa a "todos"
         return next.length === 0 ? ['todos'] : next;
       } else {
         return [...withoutTodos, id];
@@ -54,17 +81,41 @@ export const FilterSidebar = () => {
   };
 
   // Alternar selección de equipamiento
-  const toggleEquipment = (id: string) => {
-    setSelectedEquipment((prev) =>
+  const handleToggleEquipment = (id: string) => {
+    if (onToggleEquipment) {
+      onToggleEquipment(id);
+      return;
+    }
+
+    setInternalEquipment((prev) =>
       prev.includes(id) ? prev.filter((e) => e !== id) : [...prev, id]
     );
   };
 
   // Limpiar todos los filtros: restablece al estado por defecto con solo "todos"
   const handleClearAll = () => {
-    setSelectedMuscles(['todos']);
-    setSelectedEquipment([]);
+    if (onClearAll) {
+      onClearAll();
+      return;
+    }
+
+    setInternalMuscles(['todos']);
+    setInternalEquipment([]);
   };
+
+  // Mapear con conteos reales si se proporcionan
+  const muscleGroups: FilterItem[] = BASE_MUSCLE_GROUPS.map((m) => ({
+    ...m,
+    count:
+      m.id === 'todos'
+        ? totalCount ?? (muscleCounts ? Object.values(muscleCounts).reduce((a, b) => a + b, 0) : 16)
+        : muscleCounts?.[m.id] ?? 0,
+  }));
+
+  const equipmentList: FilterItem[] = BASE_EQUIPMENT_LIST.map((e) => ({
+    ...e,
+    count: equipmentCounts?.[e.id] ?? 0,
+  }));
 
   // Verifica si está en el estado por defecto
   const isDefaultState =
@@ -74,18 +125,20 @@ export const FilterSidebar = () => {
 
   // Lista combinada de filtros activos (excluyendo "todos")
   const activeFilters = [
-    ...MUSCLE_GROUPS.filter(
-      (m) => m.id !== 'todos' && selectedMuscles.includes(m.id)
-    ).map((m) => ({
-      id: m.id,
-      label: m.label,
-      type: 'muscle' as const,
-    })),
-    ...EQUIPMENT_LIST.filter((e) => selectedEquipment.includes(e.id)).map((e) => ({
-      id: e.id,
-      label: e.label,
-      type: 'equipment' as const,
-    })),
+    ...muscleGroups
+      .filter((m) => m.id !== 'todos' && selectedMuscles.includes(m.id))
+      .map((m) => ({
+        id: m.id,
+        label: m.label,
+        type: 'muscle' as const,
+      })),
+    ...equipmentList
+      .filter((e) => selectedEquipment.includes(e.id))
+      .map((e) => ({
+        id: e.id,
+        label: e.label,
+        type: 'equipment' as const,
+      })),
   ];
 
   const totalActive = activeFilters.length;
@@ -115,7 +168,7 @@ export const FilterSidebar = () => {
         id="filtersDrawer"
         className={`${
           isMobileOpen ? 'block' : 'hidden'
-        } lg:block shrink-0 w-full lg:w-65 bg-dark-800/40 border-r border-dark-700 lg:sticky lg:top-20 p-5 z-20`}
+        } lg:block shrink-0 w-full lg:w-68 bg-dark-800/40 border border-dark-700/80 rounded-xl lg:self-start p-5 z-20 my-4 lg:my-6 shadow-sm`}
       >
         {/* Encabezado del filtro y botón Limpiar filtros */}
         <div className="flex items-center justify-between pb-4 border-b border-dark-700">
@@ -147,8 +200,8 @@ export const FilterSidebar = () => {
                   type="button"
                   onClick={() =>
                     filter.type === 'muscle'
-                      ? toggleMuscle(filter.id)
-                      : toggleEquipment(filter.id)
+                      ? handleToggleMuscle(filter.id)
+                      : handleToggleEquipment(filter.id)
                   }
                   className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-dark-950 border border-brand-red text-white text-xs font-medium hover:border-brand-red/70 transition-colors group cursor-pointer"
                   title={`Quitar filtro ${filter.label}`}
@@ -178,12 +231,12 @@ export const FilterSidebar = () => {
 
           {isMuscleOpen && (
             <div className="space-y-2.5 mt-3">
-              {MUSCLE_GROUPS.map((muscle) => {
+              {muscleGroups.map((muscle) => {
                 const isChecked = selectedMuscles.includes(muscle.id);
                 return (
                   <div
                     key={muscle.id}
-                    onClick={() => toggleMuscle(muscle.id)}
+                    onClick={() => handleToggleMuscle(muscle.id)}
                     className="flex items-center justify-between py-1 cursor-pointer group select-none"
                   >
                     <div className="flex items-center gap-2.5">
@@ -236,12 +289,12 @@ export const FilterSidebar = () => {
 
           {isEquipmentOpen && (
             <div className="space-y-2.5 mt-3">
-              {EQUIPMENT_LIST.map((equip) => {
+              {equipmentList.map((equip) => {
                 const isChecked = selectedEquipment.includes(equip.id);
                 return (
                   <div
                     key={equip.id}
-                    onClick={() => toggleEquipment(equip.id)}
+                    onClick={() => handleToggleEquipment(equip.id)}
                     className="flex items-center justify-between py-1 cursor-pointer group select-none"
                   >
                     <div className="flex items-center gap-2.5">

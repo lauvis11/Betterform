@@ -1,30 +1,12 @@
 ---
 import Layout from '../layout/Layout.astro';
-import { FilterSidebar } from '../components/react/FilterSidebar';
+import { ExercisesExplorer } from '../components/react/ExercisesExplorer';
 ---
 
 <Layout>
   <div class="w-full flex-1 bg-dark-900">
     <div class="max-w-300 mx-auto min-h-[calc(100vh-5rem)]">
-      <div class="flex flex-col lg:flex-row w-full">
-        <!-- Sidebar de Filtros -->
-        <FilterSidebar client:load />
-
-        <!-- Área Principal de la Sección de Ejercicios -->
-        <main class="flex-1 w-full px-4 sm:px-8 py-6 max-w-5xl">
-          <!-- Espacio reservado para la lista y encabezado de ejercicios -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-dark-700 mb-6">
-            <div class="flex items-center gap-3">
-              <h1 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                8 ejercicios encontrados
-              </h1>
-              <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-sm bg-dark-800 border border-dark-700 text-xs font-mono text-neutral-400">
-                Filtrado: Pecho, Brazos + Barra, Mancuernas
-              </span>
-            </div>
-          </div>
-        </main>
-      </div>
+      <ExercisesExplorer client:load />
     </div>
   </div>
 </Layout>
