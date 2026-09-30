@@ -72,9 +72,11 @@ export const FilterSidebar = () => {
     selectedMuscles[0] === 'todos' &&
     selectedEquipment.length === 0;
 
-  // Lista combinada de filtros activos
+  // Lista combinada de filtros activos (excluyendo "todos")
   const activeFilters = [
-    ...MUSCLE_GROUPS.filter((m) => selectedMuscles.includes(m.id)).map((m) => ({
+    ...MUSCLE_GROUPS.filter(
+      (m) => m.id !== 'todos' && selectedMuscles.includes(m.id)
+    ).map((m) => ({
       id: m.id,
       label: m.label,
       type: 'muscle' as const,
@@ -113,7 +115,7 @@ export const FilterSidebar = () => {
         id="filtersDrawer"
         className={`${
           isMobileOpen ? 'block' : 'hidden'
-        } lg:block shrink-0 w-full lg:w-[260px] bg-dark-800/40 border-r border-dark-700 lg:sticky lg:top-20 p-5 z-20`}
+        } lg:block shrink-0 w-full lg:w-65 bg-dark-800/40 border-r border-dark-700 lg:sticky lg:top-20 p-5 z-20`}
       >
         {/* Encabezado del filtro y botón Limpiar filtros */}
         <div className="flex items-center justify-between pb-4 border-b border-dark-700">
@@ -133,29 +135,31 @@ export const FilterSidebar = () => {
         </div>
 
         {/* RESUMEN DE FILTROS ACTIVOS */}
-        <div className="pt-4 pb-2">
-          <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">
-            Filtros activos
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {activeFilters.map((filter) => (
-              <button
-                key={`${filter.type}-${filter.id}`}
-                type="button"
-                onClick={() =>
-                  filter.type === 'muscle'
-                    ? toggleMuscle(filter.id)
-                    : toggleEquipment(filter.id)
-                }
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-dark-950 border border-brand-red text-white text-xs font-medium hover:border-brand-red/70 transition-colors group cursor-pointer"
-                title={`Quitar filtro ${filter.label}`}
-              >
-                <span>{filter.label}</span>
-                <X className="w-3.5 h-3.5 text-brand-red group-hover:text-white transition-colors" />
-              </button>
-            ))}
+        {totalActive > 0 && (
+          <div className="pt-4 pb-2">
+            <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">
+              Filtros activos
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {activeFilters.map((filter) => (
+                <button
+                  key={`${filter.type}-${filter.id}`}
+                  type="button"
+                  onClick={() =>
+                    filter.type === 'muscle'
+                      ? toggleMuscle(filter.id)
+                      : toggleEquipment(filter.id)
+                  }
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-dark-950 border border-brand-red text-white text-xs font-medium hover:border-brand-red/70 transition-colors group cursor-pointer"
+                  title={`Quitar filtro ${filter.label}`}
+                >
+                  <span>{filter.label}</span>
+                  <X className="w-3.5 h-3.5 text-brand-red group-hover:text-white transition-colors" />
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* SECCIÓN 1: GRUPO MUSCULAR (Desplegable y seleccionable) */}
         <div className="mt-4">
@@ -190,7 +194,7 @@ export const FilterSidebar = () => {
                             : 'bg-dark-950 border border-dark-700 group-hover:border-neutral-400'
                         }`}
                       >
-                        {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                        {isChecked && <Check className="w-3 h-3 stroke-3" />}
                       </span>
                       <span
                         className={`text-sm transition-colors ${
@@ -248,7 +252,7 @@ export const FilterSidebar = () => {
                             : 'bg-dark-950 border border-dark-700 group-hover:border-neutral-400'
                         }`}
                       >
-                        {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                        {isChecked && <Check className="w-3 h-3 stroke-3" />}
                       </span>
                       <span
                         className={`text-sm transition-colors ${
