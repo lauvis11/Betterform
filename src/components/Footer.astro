@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import BetterFormLogo from '../assets/Betterform-logo-removebg-preview.png';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-dark-900 border-t border-dark-700 mt-auto">
+  <div class="max-w-300 mx-auto px-4 sm:px-6 py-2 sm:py-2.5 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <!-- Logo a la izquierda -->
+    <a 
+      href="/" 
+      class="flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-red rounded"
+      aria-label="BetterForm - Inicio"
+    >
+      <Image 
+        src={BetterFormLogo} 
+        alt="BetterForm Logo" 
+        class="h-16 sm:h-18 md:h-20 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity" 
+      />
+    </a>
+
+    <!-- Copyright a la derecha -->
+    <p class="text-xs sm:text-sm text-neutral-400 text-center sm:text-right">
+      &copy; {currentYear} BetterForm. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>

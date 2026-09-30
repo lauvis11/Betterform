@@ -1,6 +1,14 @@
 ---
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  showFooter?: boolean;
+}
+
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/inicio';
+const { showFooter = !isHome } = Astro.props;
 ---
 
 <html lang="es">
@@ -12,8 +20,11 @@ import Navbar from '../components/Navbar.astro';
     <meta name="generator" content={Astro.generator} />
 		<title>Betterform</title>
   </head>
-  <body class="bg-[#0f0f0f] text-[#f3f4f6] min-h-screen">
+  <body class="bg-dark-900 text-[#f3f4f6] min-h-screen flex flex-col">
     <Navbar />
-    <slot />
+    <div class="flex-1 w-full flex flex-col">
+      <slot />
+    </div>
+    {showFooter && <Footer />}
   </body>
 </html>

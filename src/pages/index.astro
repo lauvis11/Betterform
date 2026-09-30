@@ -4,7 +4,7 @@ import Hero from "../components/Hero.astro";
 import { SearchBar } from "../components/react/Searchbar";
 ---
 
-<Layout>
+<Layout showFooter={false}>
 	<Hero />
 	<section class="w-full max-w-195 mx-auto px-4 -mt-4 sm:-mt-6 pb-20 relative z-20">
 		<SearchBar client:load />
