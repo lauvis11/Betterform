@@ -12,7 +12,7 @@ interface NavItem {
 const navitems: NavItem[] = [
   { title: 'Inicio', href: '/', icon: House },
   { title: 'Ejercicios', href: '/exercises', icon: Dumbbell },
-  { title: 'Información', href: '/about', icon: CircleAlert }
+  { title: 'Acerca de', href: '/about', icon: CircleAlert }
 ];
 
 const currentPath = Astro.url.pathname;
@@ -32,7 +32,7 @@ const isItemActive = (href: string) => {
 ---
 
 <header class="sticky top-0 left-0 right-0 z-50 w-full bg-dark-900/90 backdrop-blur-md border-b border-dark-700">
-  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
+  <div class="max-w-300 mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
     <div class="flex items-center">
       <a 
         href="/" 
