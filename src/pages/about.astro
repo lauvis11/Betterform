@@ -1,7 +1,99 @@
 ---
 import Layout from "../layout/Layout.astro";
+import { ArrowLeft, Mail } from "lucide-astro";
 ---
 
 <Layout>
-  <h1>About</h1>
+  <main class="w-full flex-1 bg-dark-900 text-white">
+    <div class="max-w-180 mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      {/* 1. Enlace de retorno */}
+      <div class="mb-8">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-400 hover:text-white transition-colors group cursor-pointer"
+        >
+          <ArrowLeft class="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:-translate-x-0.5 transition-transform" />
+          <span>Volver al inicio</span>
+        </a>
+      </div>
+
+      {/* 2. Título principal y presentación */}
+      <header class="mb-10">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          Acerca de Better<span class="text-brand-red">Form</span>
+        </h1>
+        <p class="text-base sm:text-lg text-neutral-300 leading-relaxed">
+          BetterForm es una herramienta simple para aprender la técnica correcta de cualquier ejercicio de gimnasio. Encuentra cada movimiento con un video seleccionado e instrucciones paso a paso, sin registros ni distracciones.
+        </p>
+      </header>
+
+      {/* 3. Sección "Objetivo del proyecto" */}
+      <section class="mb-10">
+        <h2 class="text-lg sm:text-xl font-bold text-white mb-3">
+          Objetivo del proyecto
+        </h2>
+        <p class="text-sm sm:text-base text-neutral-300 leading-relaxed mb-3">
+          BetterForm nació como un proyecto personal para aprender, pero con la idea de que fuera útil de verdad: una herramienta que cualquiera pueda abrir en pleno entrenamiento y usar sin instrucciones.
+        </p>
+        <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+          Su objetivo es ser una referencia rápida para quienes entrenan, sin importar su nivel. Buscas el ejercicio, ves cómo se ejecuta y sigues con tu rutina, sin anuncios, registros ni pantallas lentas. Una buena técnica ayuda a entrenar con más seguridad, y eso es lo que BetterForm busca facilitar.
+        </p>
+      </section>
+
+      {/* 4. Sección "Créditos" */}
+      <section class="mb-10">
+        <h2 class="text-lg sm:text-xl font-bold text-white mb-4">
+          Créditos y fuentes
+        </h2>
+        <div class="space-y-3">
+          <div class="bg-dark-800/40 border border-dark-700/70 rounded-xl p-4 sm:p-5 flex items-start gap-3.5 shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-red mt-2.5 shrink-0"></span>
+            <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+              Los videos pertenecen a sus respectivos creadores y entrenadores de referencia de la comunidad de fuerza, mostrados mediante el reproductor oficial de YouTube para respetar íntegramente su autoría original.
+            </p>
+          </div>
+
+          <div class="bg-dark-800/40 border border-dark-700/70 rounded-xl p-4 sm:p-5 flex items-start gap-3.5 shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-red mt-2.5 shrink-0"></span>
+            <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+              Los datos de las instrucciones, los grupos musculares y el equipamiento de cada ejercicio fueron recopilados y redactados por nosotros, a excepción de los videos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Sección "Contacto" */}
+      <section class="border-t border-dark-700/80 pt-8">
+        <h2 class="text-lg sm:text-xl font-bold text-white mb-2">
+          Contacto & Código
+        </h2>
+        <p class="text-xs sm:text-sm text-neutral-400 mb-6 leading-relaxed">
+          ¿Tienes sugerencias para mejoras en la plataforma o quieres revisar la documentacion tecnica?
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3.5">
+          {/* Botón principal GitHub */}
+          <a
+            href="https://github.com/lauvis11/Betterform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto bg-brand-red text-white font-semibold text-xs sm:text-sm px-6 py-3.5 rounded-xl inline-flex items-center justify-center gap-2 hover:bg-brand-red/90 transition-all shadow-md cursor-pointer text-center group"
+          >
+            <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+            </svg>
+            <span>Ver repositorio</span>
+          </a>
+
+          {/* Botón secundario Correo */}
+          <a
+            href="mailto:lautaroviscarradev@gmail.com"
+            class="w-full sm:w-auto bg-dark-800 text-neutral-200 font-semibold text-xs sm:text-sm px-6 py-3.5 rounded-xl border border-dark-700 inline-flex items-center justify-center gap-2 hover:bg-dark-700/80 hover:text-white hover:border-dark-600 transition-all shadow-sm cursor-pointer text-center"
+          >
+            <Mail class="w-4 h-4 text-neutral-400" />
+            <span>Enviar un correo</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
 </Layout>
