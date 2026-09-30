@@ -44,12 +44,12 @@ export const ExerciseCard = React.memo(function ExerciseCard({
                             <h2 className="text-base sm:text-xl font-bold text-white">
                                 {exercise.name}
                             </h2>
-                            <div className="flex items-center gap-1 shrink-0 ml-auto">
-                                <span className="inline-flex items-center justify-center w-16 px-1 py-0.5 leading-tight rounded-sm bg-brand-red border border-transparent text-white font-bold text-center whitespace-nowrap text-[10px] sm:text-[11px]">
+                            <div className="flex items-center gap-1.5 shrink-0 ml-auto">
+                                <span className="inline-flex items-center justify-center px-2.5 py-0.5 leading-tight rounded-sm bg-brand-red border border-transparent text-white font-bold text-center whitespace-nowrap text-[10px] sm:text-[11px]">
                                     {exercise.category}
                                 </span>
                                 <span className="text-neutral-500 select-none text-[10px] sm:text-[11px]">-</span>
-                                <span className="inline-flex items-center justify-center w-16 px-1 py-0.5 leading-tight rounded-sm bg-dark-700/60 border border-dark-600 text-neutral-300 font-medium capitalize text-center whitespace-nowrap text-[10px] sm:text-[11px]">
+                                <span className="inline-flex items-center justify-center px-2.5 py-0.5 leading-tight rounded-sm bg-dark-700/60 border border-dark-600 text-neutral-300 font-medium capitalize text-center whitespace-nowrap text-[10px] sm:text-[11px]">
                                     {exercise.equipment}
                                 </span>
                             </div>
