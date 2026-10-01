@@ -7,7 +7,9 @@ import ExerciseSkeleton from "../components/ExerciseSkeleton.astro";
 
 <Layout showFooter={false}>
 	<Hero />
-	<section class="w-full max-w-195 mx-auto px-4 -mt-4 sm:-mt-6 pb-20 relative z-20">
+	<section
+		class="w-full max-w-195 mx-auto px-4 -mt-4 sm:-mt-6 pb-20 relative z-20"
+	>
 		<SearchBar client:load>
 			<ExerciseSkeleton count={3} />
 		</SearchBar>

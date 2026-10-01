@@ -24,14 +24,17 @@ const normalize = (str: string) =>
     str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
 
 export function SearchBar({ children }: SearchBarProps) {
-    const [query, setQuery] = useState('');
+    // inputValue: lo que el usuario está escribiendo en el campo de texto (sin buscar aún)
+    const [inputValue, setInputValue] = useState('');
+    // searchQuery: la consulta confirmada que se busca tras presionar Enter o Send
+    const [searchQuery, setSearchQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [searchKey, setSearchKey] = useState(0);
 
-    const isSearching = query.trim().length > 0;
-    const normalizedQuery = normalize(query);
+    const isSearching = searchQuery.trim().length > 0;
+    const normalizedQuery = normalize(searchQuery);
 
-    // Sensación rápida de carga al escribir
+    // Sensación rápida de carga cuando se ejecuta una búsqueda (Enter o Send)
     useEffect(() => {
         if (!isSearching) {
             setIsLoading(false);
@@ -42,12 +45,12 @@ export function SearchBar({ children }: SearchBarProps) {
         const timer = setTimeout(() => {
             setIsLoading(false);
             setSearchKey((prev) => prev + 1);
-        }, 1000);
+        }, 300);
 
         return () => clearTimeout(timer);
-    }, [query, isSearching]);
+    }, [searchQuery, isSearching]);
 
-    // Ocultar el Hero cuando se está buscando para que el input suba arriba
+    // Ocultar el Hero cuando se confirma la búsqueda para que los resultados suban
     useEffect(() => {
         const hero = document.getElementById('hero-section');
         if (!hero) return;
@@ -58,7 +61,7 @@ export function SearchBar({ children }: SearchBarProps) {
         }
     }, [isSearching]);
 
-    // Filtrado en tiempo real con datos reales
+    // Filtrado con datos reales basado en la consulta confirmada (searchQuery)
     const filteredExercises = (ejerciciosData as Exercise[]).filter((exercise) => {
         if (!normalizedQuery) return true;
 
@@ -73,37 +76,64 @@ export function SearchBar({ children }: SearchBarProps) {
         return nameMatch || spanishMatch || bodyPartMatch || categoryMatch || equipmentMatch;
     });
 
+    // Ejecutar búsqueda explícita (Enter o botón Send)
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        const trimmed = inputValue.trim();
+        if (trimmed.length > 0) {
+            setSearchQuery(trimmed);
+        }
+    };
+
     const handleClear = () => {
-        setQuery('');
+        setInputValue('');
+        setSearchQuery('');
     };
 
     const handleQuickSearch = (term: string) => {
-        setQuery(term);
+        setInputValue(term);
+        setSearchQuery(term);
     };
 
     return (
         <div className={`w-full max-w-195 mx-auto flex flex-col gap-4 transition-all duration-300 ${isSearching ? 'pt-6 sm:pt-8' : ''}`}>
-            {/* ESTADO 1: INICIAL / IDLE (Solo input amplio y recomendaciones) */}
+            {/* ESTADO 1: INICIAL / IDLE (Hero visible, sin búsqueda activa) */}
             {!isSearching ? (
                 <div className="w-full flex flex-col items-center">
-                    {/* Input principal estilo Hero */}
-                    <div className="relative flex items-center w-full h-14 sm:h-16 rounded-xl bg-dark-800 border border-dark-700 transition-all duration-200 shadow-xl focus-within:border-brand-red focus-within:ring-1 focus-within:ring-brand-red group">
+                    {/* Formulario de búsqueda con botón de envío */}
+                    <form
+                        onSubmit={handleSubmit}
+                        className="relative flex items-center w-full h-14 sm:h-16 rounded-xl bg-dark-800 border border-dark-700 transition-all duration-200 shadow-xl focus-within:border-brand-red focus-within:ring-1 focus-within:ring-brand-red group"
+                    >
                         <div className="pl-4 sm:pl-5 pr-3 flex items-center pointer-events-none text-neutral-500 group-focus-within:text-brand-red transition-colors">
                             <Search className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
-                        
-                        <input 
+
+                        <input
                             id="realtime-search-input"
                             name="search"
                             type="text"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
                             placeholder='Prueba con "Press de banca", "Sentadilla" o "Dominadas"...'
                             autoComplete="off"
                             spellCheck={false}
-                            className="w-full h-full bg-transparent text-white placeholder:text-neutral-500 font-sans text-sm sm:text-base focus:outline-none pr-5 [&::-webkit-search-cancel-button]:hidden"
+                            className="w-full h-full bg-transparent text-white placeholder:text-neutral-500 font-sans text-sm sm:text-base focus:outline-none pr-11 [&::-webkit-search-cancel-button]:hidden"
                         />
-                    </div>
+
+                        {/* Botón para borrar texto si hay contenido */}
+                        {inputValue.length > 0 && (
+                            <button
+                                type="button"
+                                onClick={() => setInputValue('')}
+                                className="absolute right-3.5 w-7 h-7 flex items-center justify-center rounded-lg text-neutral-400 hover:text-white hover:bg-dark-700 transition-colors cursor-pointer"
+                                aria-label="Borrar texto"
+                                title="Borrar texto"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        )}
+                    </form>
 
                     {/* Recomendaciones / Chips populares bajo el input */}
                     <div className="w-full mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-2">
@@ -111,9 +141,9 @@ export function SearchBar({ children }: SearchBarProps) {
                             Populares:
                         </span>
                         {POPULAR_SEARCHES.map((term) => (
-                            <button 
-                                key={term} 
-                                type="button" 
+                            <button
+                                key={term}
+                                type="button"
                                 onClick={() => handleQuickSearch(term)}
                                 className="px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-700 text-xs sm:text-sm font-medium text-neutral-400 hover:text-white hover:border-brand-red hover:bg-dark-700 transition-all cursor-pointer shadow-sm active:scale-95"
                             >
@@ -123,36 +153,44 @@ export function SearchBar({ children }: SearchBarProps) {
                     </div>
                 </div>
             ) : (
-                /* ESTADO 2: BÚSQUEDA ACTIVA (Input arriba con selector + Pantalla de Stitch de resultados) */
+                /* ESTADO 2: BÚSQUEDA ACTIVA (Input arriba con selector + Resultados) */
                 <div className="w-full flex flex-col gap-4 animate-in fade-in duration-200">
-                    {/* Barra de búsqueda interactiva superior */}
-                    <div className="relative w-full flex items-center overflow-hidden rounded-xl">
+                    {/* Barra de búsqueda superior interactiva */}
+                    <form
+                        onSubmit={handleSubmit}
+                        className="relative w-full flex items-center overflow-hidden rounded-xl bg-dark-800 border border-dark-700 focus-within:border-brand-red focus-within:ring-1 focus-within:ring-brand-red shadow-lg transition-all"
+                    >
                         {isLoading ? (
-                            <Loader2 className="absolute left-4 w-5 h-5 text-brand-red animate-spin pointer-events-none" />
+                            <div className="pl-4 pr-3 flex items-center pointer-events-none">
+                                <Loader2 className="w-5 h-5 text-brand-red animate-spin" />
+                            </div>
                         ) : (
-                            <Search className="absolute left-4 w-5 h-5 text-neutral-400 pointer-events-none transition-colors" />
+                            <div className="pl-4 pr-3 flex items-center pointer-events-none text-neutral-400">
+                                <Search className="w-5 h-5" />
+                            </div>
                         )}
-                        
-                        <input 
+
+                        <input
                             autoFocus
                             id="realtime-search-input-active"
                             name="search"
                             type="text"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
                             onKeyDown={(e) => {
                                 if (e.key === 'Escape') handleClear();
                             }}
                             placeholder="Buscar ejercicio, grupo muscular o equipo..."
                             autoComplete="off"
                             spellCheck={false}
-                            className="w-full h-12 sm:h-13 pl-11 pr-10 bg-dark-800 border border-dark-700 focus:border-brand-red focus:ring-1 focus:ring-brand-red text-white placeholder:text-neutral-500 font-sans text-sm sm:text-base rounded-xl outline-none transition-all shadow-lg"
+                            className="w-full h-12 sm:h-13 bg-transparent text-white placeholder:text-neutral-500 font-sans text-sm sm:text-base outline-none pr-11 [&::-webkit-search-cancel-button]:hidden"
                         />
 
+                        {/* Botón de limpiar búsqueda */}
                         <button
                             type="button"
                             onClick={handleClear}
-                            className="absolute right-3 w-7 h-7 flex items-center justify-center rounded-lg text-neutral-400 hover:text-white hover:bg-dark-700 transition-colors cursor-pointer"
+                            className="absolute right-3.5 w-7 h-7 flex items-center justify-center rounded-lg text-neutral-400 hover:text-white hover:bg-dark-700 transition-colors cursor-pointer"
                             aria-label="Limpiar búsqueda (Esc)"
                             title="Limpiar búsqueda (Esc)"
                         >
@@ -165,7 +203,7 @@ export function SearchBar({ children }: SearchBarProps) {
                                 <div className="w-1/3 h-full bg-brand-red animate-loading-beam rounded-full" />
                             </div>
                         )}
-                    </div>
+                    </form>
 
                     {/* Meta Bar: Contador de resultados */}
                     <div className="flex items-center py-1 px-1 text-xs text-neutral-400">
@@ -181,13 +219,13 @@ export function SearchBar({ children }: SearchBarProps) {
                                         {filteredExercises.length} {filteredExercises.length === 1 ? 'ejercicio encontrado' : 'ejercicios encontrados'}
                                     </span>
                                     <span className="text-neutral-500">•</span>
-                                    <span className="text-sm font-mono text-white">Búsqueda: "{query}"</span>
+                                    <span className="text-sm font-mono text-white">Búsqueda: "{searchQuery}"</span>
                                 </>
                             )}
                         </div>
                     </div>
 
-                    {/* Live Results: Skeletons durante la carga rápida y cards una por una al finalizar */}
+                    {/* Resultados: Skeletons durante la carga rápida y cards al finalizar */}
                     {isLoading ? (
                         children || (
                             <div className="flex flex-col gap-3.5 w-full">
@@ -211,7 +249,7 @@ export function SearchBar({ children }: SearchBarProps) {
                             ))}
                         </div>
                     ) : (
-                        /* Estado vacío (Empty State de Stitch) */
+                        /* Estado vacío (Empty State) */
                         <div className="animate-card-in flex flex-col items-center justify-center py-12 px-4 bg-dark-800 border border-dark-700 rounded-xl text-center shadow-lg">
                             <div className="w-12 h-12 rounded-full bg-dark-700/80 flex items-center justify-center mb-3 text-neutral-400">
                                 <SearchX className="w-6 h-6" />
@@ -240,7 +278,7 @@ export function SearchBar({ children }: SearchBarProps) {
                         </div>
                     )}
 
-                    {/* Atajos de búsqueda rápida al pie (Stitch) */}
+                    {/* Atajos de búsqueda rápida al pie */}
                     <div className="mt-2 pt-4 border-t border-dark-700/60 flex flex-wrap items-center justify-between gap-2">
                         <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
                             Atajos de búsqueda rápida:
