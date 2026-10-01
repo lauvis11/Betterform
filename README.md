@@ -1,6 +1,5 @@
-# BetterForm 
+# BetterForm - Busca y aprende la técnica correcta de ejercicios de gimnasio
 
-> **Busca y aprende la técnica correcta de ejercicios de gimnasio de forma rápida, visual y sin distracciones.**
 
 <p align="center">
   <img src="./src/assets/Betterform-logo.png" alt="BetterForm Logo" width="300" />
