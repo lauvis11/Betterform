@@ -3,7 +3,7 @@
 > **Busca y aprende la técnica correcta de ejercicios de gimnasio de forma rápida, visual y sin distracciones.**
 
 <p align="center">
-  <img src="./src/assets/Betterform-logo-removebg-preview.png" alt="BetterForm Logo" width="300" />
+  <img src="./src/assets/Betterform-logo.png" alt="BetterForm Logo" width="300" />
 </p>
 
 ---
