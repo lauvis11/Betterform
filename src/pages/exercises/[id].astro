@@ -4,6 +4,7 @@ import ejercicios from "../../data/ejercicios.json";
 import type { Exercise } from "../../types/exercise";
 import { ArrowLeft, ExternalLink } from "lucide-astro";
 import youtubeIcon from "../../assets/icons/youtube-svgrepo-com.svg";
+import FeaturedExerciseCard from "../../components/FeaturedExerciseCard.astro";
 
 export function getStaticPaths() {
   return (ejercicios as Exercise[]).map((exercise) => ({
@@ -17,6 +18,11 @@ interface Props {
 }
 
 const { exercise } = Astro.props;
+
+// Ejercicios relacionados estrictamente de la misma categoría (excluyendo el actual)
+const relatedExercises = (ejercicios as Exercise[]).filter(
+  (e) => e.category === exercise.category && e.id !== exercise.id
+);
 ---
 
 <Layout>
@@ -155,5 +161,26 @@ const { exercise } = Astro.props;
         }
       </div>
     </div>
+
+    <!-- 7. Sección de Ejercicios Relacionados (misma categoría) -->
+    {
+      relatedExercises.length > 0 && (
+        <section class="w-full max-w-300 mx-auto px-4 sm:px-6 pt-6 pb-20 border-t border-dark-700/60">
+          <!-- Header de la sección de relacionados -->
+          <div class="mb-6">
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+              Ejercicios Relacionados
+            </h2>
+          </div>
+
+          <!-- Grid de cards cuadradas estilo ecommerce -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {relatedExercises.map((item) => (
+              <FeaturedExerciseCard exercise={item} />
+            ))}
+          </div>
+        </section>
+      )
+    }
   </main>
 </Layout>
