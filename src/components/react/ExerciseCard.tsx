@@ -40,11 +40,11 @@ export const ExerciseCard = React.memo(function ExerciseCard({
                 <div className="flex flex-col justify-between gap-2 min-w-0 flex-1 self-stretch py-0.5 w-full">
                     <div>
                         {/* Fila 1: Título a la izquierda y Badges pegadas a la derecha */}
-                        <div className="flex items-center justify-between gap-3 flex-wrap mb-1.5 w-full">
-                            <h2 className="text-base sm:text-xl font-bold text-white">
+                        <div className="flex items-start justify-between gap-3 mb-1.5 w-full">
+                            <h2 className="text-base sm:text-xl font-bold text-white leading-snug min-w-0 flex-1">
                                 {exercise.name}
                             </h2>
-                            <div className="flex items-center gap-1.5 shrink-0 ml-auto">
+                            <div className="flex items-center gap-1.5 shrink-0 pt-0.5">
                                 <span className="inline-flex items-center justify-center px-2.5 py-0.5 leading-tight rounded-sm bg-brand-red border border-transparent text-white font-bold text-center whitespace-nowrap text-[10px] sm:text-[11px]">
                                     {exercise.category}
                                 </span>
