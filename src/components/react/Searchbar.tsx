@@ -249,38 +249,23 @@ export function SearchBar({ children }: SearchBarProps) {
                             ))}
                         </div>
                     ) : (
-                        /* Estado vacío (Empty State) */
-                        <div className="animate-card-in flex flex-col items-center justify-center py-12 px-4 bg-dark-800 border border-dark-700 rounded-xl text-center shadow-lg">
-                            <div className="w-12 h-12 rounded-full bg-dark-700/80 flex items-center justify-center mb-3 text-neutral-400">
-                                <SearchX className="w-6 h-6" />
+                        /* Estado vacío (Empty State sin contenedor) */
+                        <div className="animate-card-in flex flex-col items-center justify-center pt-8 pb-3 sm:pt-10 sm:pb-4 px-4 text-center">
+                            <div className="w-14 h-14 rounded-full bg-dark-700/80 flex items-center justify-center mb-4 text-neutral-400">
+                                <SearchX className="w-7 h-7" />
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-1">
+                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                                 No encontramos ejercicios para tu búsqueda
                             </h3>
-                            <p className="text-sm text-neutral-400 max-w-105 mb-5">
+                            <p className="text-base sm:text-lg text-neutral-400 max-w-lg leading-relaxed">
                                 Verifica la ortografía o intenta buscar por músculo, equipo o términos generales.
                             </p>
-                            <div className="flex items-center flex-wrap justify-center gap-1.5">
-                                <span className="text-xs uppercase tracking-wider font-semibold text-neutral-500 mr-1">
-                                    Sugerencias:
-                                </span>
-                                {POPULAR_SEARCHES.map((term) => (
-                                    <button
-                                        key={term}
-                                        type="button"
-                                        onClick={() => handleQuickSearch(term)}
-                                        className="px-2.5 py-1 bg-dark-700 hover:bg-dark-600 border border-dark-600 hover:border-brand-red rounded text-white font-mono text-xs transition-colors cursor-pointer"
-                                    >
-                                        {term}
-                                    </button>
-                                ))}
-                            </div>
                         </div>
                     )}
 
                     {/* Atajos de búsqueda rápida al pie */}
-                    <div className="mt-2 pt-4 border-t border-dark-700/60 flex flex-wrap items-center justify-between gap-2">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+                    <div className="mt-1 pt-3 border-t border-dark-700/60 flex flex-wrap items-center gap-2 sm:gap-2.5">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500 shrink-0">
                             Atajos de búsqueda rápida:
                         </span>
                         <div className="flex items-center gap-1.5 flex-wrap">
