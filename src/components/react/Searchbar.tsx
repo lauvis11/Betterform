@@ -115,10 +115,10 @@ export function SearchBar({ children }: SearchBarProps) {
                             type="text"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
-                            placeholder='Prueba con "Press de banca", "Sentadilla" o "Dominadas"...'
+                            placeholder='Prueba con "Press banca", "Sentadilla"...'
                             autoComplete="off"
                             spellCheck={false}
-                            className="w-full h-full bg-transparent text-white placeholder:text-neutral-500 font-sans text-sm sm:text-base focus:outline-none pr-11 [&::-webkit-search-cancel-button]:hidden"
+                            className="w-full h-full bg-transparent text-white placeholder:text-neutral-500 placeholder:text-xs sm:placeholder:text-base font-sans text-sm sm:text-base focus:outline-none pr-11 [&::-webkit-search-cancel-button]:hidden"
                         />
 
                         {/* Botón para borrar texto si hay contenido */}
@@ -180,10 +180,10 @@ export function SearchBar({ children }: SearchBarProps) {
                             onKeyDown={(e) => {
                                 if (e.key === 'Escape') handleClear();
                             }}
-                            placeholder="Buscar ejercicio, grupo muscular o equipo..."
+                            placeholder="Buscar por ejercicio o músculo..."
                             autoComplete="off"
                             spellCheck={false}
-                            className="w-full h-12 sm:h-13 bg-transparent text-white placeholder:text-neutral-500 font-sans text-sm sm:text-base outline-none pr-11 [&::-webkit-search-cancel-button]:hidden"
+                            className="w-full h-12 sm:h-13 bg-transparent text-white placeholder:text-neutral-500 placeholder:text-xs sm:placeholder:text-base font-sans text-sm sm:text-base outline-none pr-11 [&::-webkit-search-cancel-button]:hidden"
                         />
 
                         {/* Botón de limpiar búsqueda */}
